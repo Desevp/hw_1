@@ -1,0 +1,190 @@
+// Event block
+
+.event {
+  position: relative;
+  width: 676px;
+  background-color: $block-bg;
+  border-radius: $border-radius;
+  box-shadow: $shadow-off;
+  transition: background-color $transition-time, box-shadow $transition-time;
+
+  &:hover {
+    box-shadow: $shadow;
+    background-color: $block-bg-hover;
+
+    .event__content {
+      background-color: $block-bg-hover;
+    }
+  }
+
+  &--critical {
+    background-color: $error-color;
+
+    &:hover {
+      background-color: $error-color;
+    }
+
+    .event__title {
+      color: $text-color--light;
+    }
+
+    .event__device,
+    .event__time {
+      color: $text-color--light;
+    }
+
+    .event__icon svg {
+      fill: $white;
+    }
+  }
+
+  &__inner {
+    padding: 20px;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    position: relative;
+    width: 52px;
+    height: 52px;
+    margin-right: 18px;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      fill: $grey;
+    }
+  }
+
+  &__title {
+    @include titleH1();
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  &__device,
+  &__time {
+    @include smallString();
+  }
+
+  &__content {
+    position: relative;
+    bottom: -1px;
+    border-radius: $border-radius;
+    background-color: $block-bg;
+    transition: background-color $transition-time;
+  }
+
+  &__description {
+    @include largeString();
+  }
+
+  &__picture {
+    position: relative;
+    width: 100%;
+    margin-top: 30px;
+    border-radius: $border-radius;
+    background-color: $block-bg;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__alert-description {
+    @include normalString($text-color-dark);
+  }
+
+  &__alert-controls {
+    margin-top: 24px;
+  }
+
+  &__button {
+    position: relative;
+    width: 132px;
+    margin-right: 18px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__indicators {
+    margin-top: 16px;
+  }
+
+  &__contol {
+    padding: 4px;
+    cursor: pointer;
+    background-color: transparent;
+    box-shadow: 0 0 10px 5px rgba($block-bg-hover, 0);
+    transition: background-color $transition-time, box-shadow $transition-time;
+
+    &:hover {
+      background-color: rgba($block-bg-hover, 0.45);
+      box-shadow: 0 0 10px 5px rgba($block-bg-hover, 0.45);
+    }
+  }
+
+  &__close {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 20px;
+    right: 28px;
+  }
+
+  &__link {
+    position: absolute;
+    bottom: 28px;
+    right: 28px;
+    width: 11px;
+    height: 17px;
+  }
+}
+
+.indicators {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+
+  &__item {
+    margin-right: 52px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__name {
+    @include smallString();
+  }
+
+  &__value {
+    @include smallString($grey, 600);
+
+    &--temperature {
+      &::after {
+        content: 'C';
+      }
+    }
+
+    &--humidity {
+      &::after {
+        content: '%';
+      }
+    }
+  }
+}

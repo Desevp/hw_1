@@ -43,7 +43,7 @@ var path = {
 		html: 'src/*.html',
 		js: 'src/js/common.js',
 		style: 'src/style/style.scss',
-		images: 'src/images/**/*',
+		images: 'src/images/',
     svg: 'src/images/svg/',
     imagesBg: 'src/images/img_to_bg/',
 		media: 'src/media/**/*.*',
@@ -162,7 +162,7 @@ gulp.task('build:style', function () {
 // // Копирование изображений
 gulp.task('build:images', function () {
   console.log('---------- Копирование изображений');
-  return gulp.src([path.src.images + '*.{jpg,jpeg,gif,png,svg}', '!' + path.src.svg, '!'+ path.src.imageBg])
+  return gulp.src(['!' + path.src.imageBg + '**/*', '!' + path.src.svg + '**/*', path.src.images + '**/*.{jpg,jpeg,gif,png,svg}'])
     .pipe(newer(path.build.images))  // оставить в потоке только изменившиеся файлы
     .pipe(size({
       title: 'Размер',
@@ -180,7 +180,7 @@ gulp.task('opt:images', function () {
   var imagemin = require('gulp-imagemin');
   var pngquant = require('imagemin-pngquant');
   console.log('---------- Оптимизация картинок');
-  return gulp.src([path.build.images + '/*.{jpg,jpeg,gif,png,svg}', '!' + path.build.images + svgSpriteName])
+  return gulp.src(['!' + path.build.images + svgSpriteName, '!' + path.src.imagesBg, path.build.images + '*.{jpg,jpeg,gif,png,svg}'])
     .pipe(imagemin({
       progressive: true,
       svgoPlugins: [{removeViewBox: false}],
