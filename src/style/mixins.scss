@@ -40,8 +40,8 @@
   color: $color;
 }
 
-@mixin smallString($color: $grey) {
+@mixin smallString($color: $grey, $weight: 400) {
   @include font(18px, $font-family, 21px);
-  font-weight: 400;
+  font-weight: $weight;
   color: $color;
 }
