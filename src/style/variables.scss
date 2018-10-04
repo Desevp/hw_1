@@ -1,24 +1,22 @@
-/// Базовые цвета https://colorscheme.ru/color-converter.html
-
+/// Базовые цвета
 $black:                       #000000;
 $white:                       #ffffff;
 $grey:                        #333333;
 
 $theme-color:                  #ffd93e;
+$error-color:                  #db5341;
 
 // Семантические цвета
-
 $text-color-dark:             $black;
 $text-color:                  $grey;
-$text-color--light:           #858585;
-$body-bg:                     #ffffff;
-$block-bg:                    #f7f7f7;
-$block-bg-hover:              #b8aeae;
+$text-color--light:           $white;
+$body-bg:                     $white;
+$block-bg:                    #fafafa;
+$block-bg-hover:              #c5baba;
 
 $border-color:                #f0f0f0;
 
 // Базовая типографика
-
 $basefontSize: 10px;
 $font-size:                   14px;
 
@@ -28,7 +26,6 @@ $font-family--monospace:      'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 
 $font-family--headings:       $font-family;
 
 // Ширины
-
 $mobile:               480px;
 $fablet:               768px;
 $tablet:               1023px;
@@ -37,11 +34,8 @@ $wide-desktop:         1920px;
 
 
 // Разное
-
 $border-radius:               20px;
 $opacity:                     0.6;
 $transition-time:             0.2s;
-$shadow-off:                   0 2px 6px 0 rgba(197, 186, 186, 0);
+$shadow-off:                  0 2px 6px 0 rgba(197, 186, 186, 0);
 $shadow:                      0 2px 6px 0 rgba(197, 186, 186, 0.5);
-
-$z-index-modal:               100;
