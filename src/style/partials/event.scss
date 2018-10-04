@@ -1,0 +1,175 @@
+// Event block
+
+.event {
+  position: relative;
+  width: 676px;
+  background-color: $error-color;
+  border-radius: $border-radius;
+
+  &__inner {
+    padding: 20px;
+  }
+
+
+  &__top {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    position: relative;
+    margin-right: 18px;
+  }
+
+  &__title {
+    @include titleH1();
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  &__device,
+  &__time {
+    @include smallString();
+  }
+
+  &__content {
+    position: relative;
+    bottom: -1px;
+    border-radius: $border-radius;
+    background-color: $block-bg;
+  }
+
+  &__description {
+    @include largeString();
+  }
+
+  &__picture {
+    position: relative;
+    width: 100%;
+    margin-top: 30px;
+    border-radius: $border-radius;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__alert-description {
+    @include normalString($text-color-dark);
+  }
+
+  &__alert-controls {
+    margin-top: 24px;
+  }
+
+  &__button {
+    position: relative;
+    width: 132px;
+    margin-right: 18px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__indicators {
+    margin-top: 16px;
+  }
+}
+
+.indicators {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+
+  &__item {
+    margin-right: 52px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__name {
+    @include smallString();
+  }
+
+  &__value {
+    @include smallString($grey, 600);
+
+    &--temperature {
+      &::after {
+        content: 'C';
+      }
+    }
+
+    &--humidity {
+      &::after {
+        content: '%';
+      }
+    }
+  }
+}
+
+.icon {
+  width: 52px;
+  height: 52px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+
+  &--stats {
+    background-image: url('../images/icons/stats.svg');
+  }
+
+  &--condicioner {
+    background-image: url('../images/icons/air-conditioner.svg');
+  }
+
+  &--battery {
+    background-image: url('../images/icons/battery.svg');
+  }
+
+  &--key {
+    background-image: url('../images/icons/key.svg');
+  }
+
+  &--fridge {
+    background-image: url('../images/icons/fridge.svg');
+  }
+
+  &--music {
+    background-image: url('../images/icons/music.svg');
+  }
+
+  &--router {
+    background-image: url('../images/icons/router.svg');
+  }
+
+  &--thermal {
+    background-image: url('../images/icons/thermal.svg');
+  }
+
+  &--kettle {
+    background-image: url('../images/icons/kettle.svg');
+  }
+
+  &--robot-cleaner {
+    background-image: url('../images/icons/robot-cleaner.svg');
+  }
+
+  &--ac {
+    background-image: url('../images/icons/ac.svg');
+  }
+
+  &--cam {
+    background-image: url('../images/icons/cam.svg');
+  }
+}
