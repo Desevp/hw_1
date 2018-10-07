@@ -5,6 +5,7 @@
     <title>Яндекс Дом</title>
     <meta name="description" content="">
     @@include('_include/page-head.html')
+    <script type="text/javascript" src="/media/events.json"></script>
   </head>
   <body>
     <div class="page__inner">
@@ -12,95 +13,102 @@
         @@include('_include/header.html')
         <main role="main">
           <h1>Лента событий</h1>
-          <div class="event event--size--s event--critical">
-            <div class="event__inner">
-              <div class="event__top">
-                <div class="event__icon">
-                  <svg><use xlink:href="images/sprite-svg.svg#stats"></use></svg>
-                </div>
-                <h2 class="event__title">Дверь открыта</h2>
-              </div>
-              <div class="event__info">
-                <div class="event__device">Сенсор входной двери</div>
-                <div class="event__time">18:50, Сегодня</div>
-              </div>
-            </div>
-            <div class="event__content">
+
+          
+
+          <template id="event">
+            <div class="event" data-event-type>
               <div class="event__inner">
-                <div class="event__description">
-                  Так держать! За последнюю неделю вы потратили на 10% меньше ресурсов, чем неделей ранее.
+                <div class="event__top">
+                  <div class="event__icon">
+                    <svg><use data-event-icon xlink:href="images/sprite-svg.svg#stats"></use></svg>
+                  </div>
+                  <h2 class="event__title" data-event-title>Дверь открыта</h2>
                 </div>
-                <div class="event__music">
+                <div class="event__info">
+                  <div class="event__device" data-event-source>Сенсор входной двери</div>
+                  <div class="event__time" data-event-time>18:50, Сегодня</div>
+                </div>
+              </div>
+              <div class="event__contol event__close icon icon--close">
+              </div>
+              <div class="event__contol event__link icon icon--link"></div>
+            </div>
+          </template>
 
-                </div>
-                <div class="event__picture">
-                  <picture>
-                    <source type="image/svg+xml" srcset="images/Richdata.svg">
-                     <img src="images/Richdata.png" srcset="images/Richdata@2x.png 2x" srcset="images/Richdata@3x.png 3x" alt="">
-                  </picture>
-                </div>
-                <div class="event__diagram">
+          <template id="event-content">
+            <div class="event__content">
+              <div class="event__description" data-event-description>
+                Так держать! За последнюю неделю вы потратили на 10% меньше ресурсов, чем неделей ранее.
+              </div>
+            </div>
+          </template>
 
-                </div>
-                <div class="event__alert">
-                  <div class="event__alert-description">
-                    Кажется, в холодильнике заканчивается молоко. Вы хотите добавить его в список покупок?
-                  </div>
-                  <div class="event__alert-controls">
-                    <button class="button event__button button--marked" type="button" name="button">Да</button>
-                    <button class="button event__button" type="button" name="button">Нет</button>
-                  </div>
-                </div>
-                <div class="event__indicators indicators">
-                  <div class="indicators__item">
-                    <span class="indicators__name">Температура:</span>
-                    <span class="indicators__value indicators__value--temperature">24</span>
-                  </div>
-                  <div class="indicators__item">
-                    <span class="indicators__name">Влажность:</span>
-                    <span class="indicators__value indicators__value--humidity">80</span>
-                  </div>
-                </div>
+          <template id="event-picture">
+            <div class="event__picture">
+              <picture>
+                <source type="image/svg+xml" srcset="images/Richdata.svg">
+                 <img src="images/Richdata.png" srcset="images/Richdata@2x.png 2x" srcset="images/Richdata@3x.png 3x" alt="">
+              </picture>
+            </div>
+          </template>
 
-                <div class="event__player">
-                  <div class="player">
-                    <div class="player__text">
-                      Сейчас проигрывается:
+          <template id="event-alert">
+            <div class="event__alert">
+              <div class="event__alert-controls">
+                <button class="button event__button button--marked" type="button" name="button">Да</button>
+                <button class="button event__button" type="button" name="button">Нет</button>
+              </div>
+            </div>
+          </template>
+
+          <template id="event-indicators">
+            <div class="event__indicators indicators">
+              <div class="indicators__item">
+                <span class="indicators__name">Температура:</span>
+                <span class="indicators__value indicators__value--temperature" data-event-temperature>24</span>
+              </div>
+              <div class="indicators__item">
+                <span class="indicators__name">Влажность:</span>
+                <span class="indicators__value indicators__value--humidity" data-event-humidity>80</span>
+              </div>
+            </div>
+          </template>
+
+          <template id="event-music">
+            <div class="event__music">
+              <div class="event__player">
+                <div class="player">
+                  <div class="player__info">
+                    <div class="player__cover">
+
                     </div>
-                    <div class="player__info">
-                      <div class="player__cover">
-
+                    <div>
+                      <div class="player__track-name" data-music-track-name>
+                        Florence & The Machine - Big God
                       </div>
-                      <div>
-                        <div class="player__track-name">
-                          Florence & The Machine - Big God
-                        </div>
-                        <div class="player__progress-bar-wr">
-                          <div class="player__progress-bar">
-                            <div class="player__progress-fill">
-                              <div class="player__progress-pin"></div>
-                            </div>
+                      <div class="player__progress-bar-wr">
+                        <div class="player__progress-bar">
+                          <div class="player__progress-fill">
+                            <div class="player__progress-pin"></div>
                           </div>
-                          <div class="player__progress-time">4:31</div>
                         </div>
+                        <div class="player__progress-time" data-music-track-length >4:31</div>
                       </div>
                     </div>
-                    <div class="player__controls">
-                      <div class="player__controls-btn">
-                        <div class="player__control player__control--prev"></div>
-                        <div class="player__control player__control--next"></div>
-                      </div>
-                      <input class="player__volume" type="range" min="0" max="100" step="1" value="17">
-                      <div class="player__volume-value">80</div>
+                  </div>
+                  <div class="player__controls">
+                    <div class="player__controls-btn">
+                      <div class="player__control player__control--prev"></div>
+                      <div class="player__control player__control--next"></div>
                     </div>
+                    <input class="player__volume" type="range" min="0" max="100" step="1" value="17">
+                    <div class="player__volume-value" data-music-volume>80</div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="event__contol event__close icon icon--close">
-            </div>
-            <div class="event__contol event__link icon icon--link"></div>
-          </div>
+          </template>
         </main>
       </div>
       <div class="page__footer">
