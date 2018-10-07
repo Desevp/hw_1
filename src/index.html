@@ -12,12 +12,15 @@
       <div class="page__content">
         @@include('_include/header.html')
         <main role="main">
-          <h1>Лента событий</h1>
+          <div class="section">
+            <h1 class="section__title">Лента событий</h1>
+            <div class="grid">
 
-          
+            </div>
+          </div>
 
           <template id="event">
-            <div class="event" data-event-type>
+            <div class="event grid__item" data-event-type>
               <div class="event__inner">
                 <div class="event__top">
                   <div class="event__icon">
@@ -38,8 +41,10 @@
 
           <template id="event-content">
             <div class="event__content">
-              <div class="event__description" data-event-description>
-                Так держать! За последнюю неделю вы потратили на 10% меньше ресурсов, чем неделей ранее.
+              <div class="event__content-inner">
+                <div class="event__description" data-event-description>
+                  Так держать! За последнюю неделю вы потратили на 10% меньше ресурсов, чем неделей ранее.
+                </div>
               </div>
             </div>
           </template>

@@ -1,8 +1,9 @@
 // Event block
 
 .event {
+  display: flex;
+  flex-direction: column;
   position: relative;
-  width: 676px;
   background-color: $block-bg;
   border-radius: $border-radius;
   box-shadow: $shadow-off;
@@ -19,6 +20,10 @@
 
   &--critical {
     background-color: $error-color;
+
+    .event__content-inner {
+      padding-top: 20px;
+    }
 
     &:hover {
       background-color: $error-color;
@@ -42,6 +47,10 @@
     padding: 20px;
   }
 
+  &__content-inner {
+    padding: 0 20px 20px;
+  }
+
   &__top {
     display: flex;
     align-items: center;
@@ -62,6 +71,7 @@
   }
 
   &__title {
+    margin: 0 0 10px;
     @include titleH1();
   }
 
@@ -77,6 +87,7 @@
   }
 
   &__content {
+    flex-grow: 1;
     position: relative;
     bottom: -1px;
     border-radius: $border-radius;

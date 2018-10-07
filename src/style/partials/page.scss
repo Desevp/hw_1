@@ -41,10 +41,10 @@ body {
   -webkit-overflow-scrolling: auto;
 }
 
-.container {
+.section {
   position: relative;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1140px;
   height: 100%;
   margin: 0 auto;
   padding: 0 40px;
@@ -55,5 +55,33 @@ body {
 
   @media (max-width: $mobile) {
     padding: 0 20px;
+  }
+
+  &__title {
+    margin-bottom: 32px;
+    @include font(36px, $font-family, 42px);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 20px;
+
+  &__item {
+    position: relative;
+
+    &--s {
+      grid-column: span 2 / auto;
+    }
+
+    &--m {
+      grid-column: span 3 / auto;
+    }
+
+    &--l {
+      grid-column: span 4 / auto;
+      grid-row: span 3 / auto;
+    }
   }
 }

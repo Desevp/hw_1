@@ -2,7 +2,7 @@ const events = data.events;
 
 (function() {
   // микрошаблонизации для Event
-  let contentElement = document.querySelector('.test');
+  let contentElement = document.querySelector('.grid');
 
   if (contentElement) {
     renderTemplate(contentElement, 'event', events);
@@ -22,7 +22,7 @@ const events = data.events;
       }
 
       // Size
-      tempType.classList.add(`event--size--${event.size}`);
+      tempType.classList.add(`grid__item--${event.size}`);
 
       //Icon
       let tempIcon = template.querySelector('use[data-event-icon]');
@@ -46,14 +46,16 @@ const events = data.events;
       if (event.description) {
         let templateContent = document.getElementById('event-content').content.cloneNode(true);
 
+        let templateContentInner = templateContent.querySelector('.event__content-inner');
+
+        // var tempInner = templateContent.querySelector('.event__inner');
+
         // Description
 
         let tempDescription = templateContent.querySelector('div[data-event-description]');
         tempDescription.innerText = event.description;
 
         tempType.appendChild(templateContent);
-
-        let templateContentInner = tempType.querySelector('.event__content');
 
         if (event.data && event.data.temperature) {
           let templateIndicators = document.getElementById('event-indicators').content.cloneNode(true);
@@ -91,25 +93,6 @@ const events = data.events;
 
       element.appendChild(template);
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   }
 
 })();
