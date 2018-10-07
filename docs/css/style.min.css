@@ -719,7 +719,20 @@ body {
 .event__inner {
     padding: 20px; }
 .event__content-inner {
-    padding: 0 20px 20px; }
+    padding: 0 20px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1; }
 .event__top {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -761,6 +774,13 @@ body {
 .event__time {
     white-space: nowrap; }
 .event__content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;

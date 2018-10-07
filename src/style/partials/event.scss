@@ -99,6 +99,10 @@
 
   &__content-inner {
     padding: 0 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
 
     @media screen and (max-width: $mobile) {
       padding: 0 16px 16px;
@@ -153,6 +157,8 @@
   }
 
   &__content {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
     position: relative;
     bottom: -1px;
