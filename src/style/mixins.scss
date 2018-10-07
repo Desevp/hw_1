@@ -51,3 +51,9 @@
   font-weight: $weight;
   color: $color;
 }
+
+@mixin mobileSmallString($color: $grey, $weight: 400) {
+  @include font(12px, $font-family, 14px);
+  font-weight: $weight;
+  color: $color;
+}

@@ -15,7 +15,6 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    // transition: filter 0.4s;
   }
 
   &__content {
@@ -41,7 +40,7 @@ body {
   -webkit-overflow-scrolling: auto;
 }
 
-.section {
+.container {
   position: relative;
   width: 100%;
   max-width: 1140px;
@@ -49,16 +48,20 @@ body {
   margin: 0 auto;
   padding: 0 40px;
 
-  @media (max-width: $tablet) {
+  @media screen and (max-width: $tablet) {
     padding: 0 30px;
   }
 
-  @media (max-width: $mobile) {
+  @media screen and (max-width: $mobile) {
     padding: 0 20px;
   }
+}
+
+.section {
+  padding: 34px 0;
 
   &__title {
-    margin-bottom: 32px;
+    margin: 0 0 32px;
     @include font(36px, $font-family, 42px);
   }
 }
@@ -67,9 +70,15 @@ body {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-gap: 20px;
+  grid-auto-flow: dense;
+
+  @media screen and (max-width: $fablet) {
+    display: block;
+  }
 
   &__item {
     position: relative;
+    grid-row: span 1 / auto;
 
     &--s {
       grid-column: span 2 / auto;

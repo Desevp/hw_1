@@ -25,8 +25,10 @@ const events = data.events;
       tempType.classList.add(`grid__item--${event.size}`);
 
       //Icon
-      let tempIcon = template.querySelector('use[data-event-icon]');
-      tempIcon.setAttribute('xlink:href', `images/sprite-svg.svg#${event.icon}`)
+      let tempIcon = template.querySelector('div[data-event-icon]');
+      let icon = `icon--${event.icon}${event.type ==='critical'?'-white':''}`;
+      tempIcon.classList.add(icon);
+
 
       //Title
       let tempTitle = template.querySelector('h2[data-event-title]');
@@ -73,6 +75,9 @@ const events = data.events;
         if (event.data && event.data.albumcover) {
           let tempMusic = document.getElementById('event-music').content.cloneNode(true);
 
+          let tempMusicTracCover = tempMusic.querySelector('img[data-music-track-cover]');
+          tempMusicTracCover.setAttribute('src', event.data.albumcover);
+
           let tempMusicTrackName = tempMusic.querySelector('div[data-music-track-name]');
           tempMusicTrackName.innerText = `${event.data.track.name} - ${event.data.artist}`;
 
@@ -81,13 +86,22 @@ const events = data.events;
 
           let tempMusicVolume = tempMusic.querySelector('div[data-music-volume]');
           tempMusicVolume.innerText = event.data.volume;
-
           templateContentInner.appendChild(tempMusic);
         }
 
         if (event.data && event.data.buttons) {
           let templateAlert = document.getElementById('event-alert').content.cloneNode(true);
           templateContentInner.appendChild(templateAlert);
+        }
+
+        if (event.data && (event.data.type === 'graph')) {
+          let templatePicture = document.getElementById('event-picture').content.cloneNode(true);
+          templateContentInner.appendChild(templatePicture);
+        }
+
+        if (event.data && event.data.image) {
+          let templateCamera = document.getElementById('event-camera').content.cloneNode(true);
+          templateContentInner.appendChild(templateCamera);
         }
       }
 

@@ -9,12 +9,30 @@
   box-shadow: $shadow-off;
   transition: background-color $transition-time, box-shadow $transition-time;
 
+  @media screen and (max-width: $fablet) {
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @media screen and (max-width: $mobile) {
+    margin-bottom: 16px;
+  }
+
   &:hover {
     box-shadow: $shadow;
     background-color: $block-bg-hover;
 
     .event__content {
       background-color: $block-bg-hover;
+    }
+
+    .event__contol {
+      opacity: 1;
+      visibility: visible;
+      right: 28px;
     }
   }
 
@@ -23,6 +41,10 @@
 
     .event__content-inner {
       padding-top: 20px;
+
+      @media screen and (max-width: $mobile) {
+        padding-top: 16px;
+      }
     }
 
     &:hover {
@@ -41,14 +63,46 @@
     .event__icon svg {
       fill: $white;
     }
+
+    .event__close {
+      background-color: rgba($error-color, 0.75);
+      box-shadow: 0 0 10px 5px rgba($error-color, 0.75);
+    }
+  }
+
+  &.grid__item--s {
+    .event__info {
+      flex-direction: column;
+      justify-content: space-between;
+
+      @media screen and (max-width: $fablet) {
+        flex-direction: row;
+      }
+    }
+
+    .event__time {
+      margin-top: 20px;
+
+      @media screen and (max-width: $fablet) {
+        margin-top: 0;
+      }
+    }
   }
 
   &__inner {
     padding: 20px;
+
+    @media screen and (max-width: $mobile) {
+      padding: 16px;
+    }
   }
 
   &__content-inner {
     padding: 0 20px 20px;
+
+    @media screen and (max-width: $mobile) {
+      padding: 0 16px 16px;
+    }
   }
 
   &__top {
@@ -71,19 +125,31 @@
   }
 
   &__title {
-    margin: 0 0 10px;
+    margin: 0;
     @include titleH1();
+
+    @media screen and (max-width: $mobile) {
+      @include titleH3();
+    }
   }
 
   &__info {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    margin-top: 16px;
   }
 
   &__device,
   &__time {
     @include smallString();
+
+    @media screen and (max-width: $mobile) {
+      @include mobileSmallString();
+    }
+  }
+
+  &__time {
+    white-space: nowrap;
   }
 
   &__content {
@@ -97,6 +163,10 @@
 
   &__description {
     @include largeString();
+
+    @media screen and (max-width: $mobile) {
+      @include smallString();
+    }
   }
 
   &__picture {
@@ -127,8 +197,15 @@
     width: 132px;
     margin-right: 18px;
 
+    @media screen and (max-width: $mobile) {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 16px;
+    }
+
     &:last-child {
       margin-right: 0;
+      margin-bottom: 0;
     }
   }
 
@@ -138,14 +215,17 @@
 
   &__contol {
     padding: 4px;
+    right: 23px;
+    visibility: hidden;
+    opacity: 0;
     cursor: pointer;
-    background-color: transparent;
-    box-shadow: 0 0 10px 5px rgba($block-bg-hover, 0);
-    transition: background-color $transition-time, box-shadow $transition-time;
+    z-index: 2;
+    background-color: rgba($block-bg-hover, 0.75);
+    box-shadow: 0 0 10px 5px rgba($block-bg-hover, 0.75);
+    transition: right $transition-time, opacity $transition-time, visibility $transition-time, transform $transition-time;
 
     &:hover {
-      background-color: rgba($block-bg-hover, 0.45);
-      box-shadow: 0 0 10px 5px rgba($block-bg-hover, 0.45);
+      transform: scale(1.1);
     }
   }
 
@@ -154,18 +234,22 @@
     width: 17px;
     height: 17px;
     top: 20px;
-    right: 28px;
+    background-image: svg-load('../images/imgToBg/cross.svg', fill=#333, stroke=#333);
   }
 
   &__link {
     position: absolute;
     bottom: 28px;
-    right: 28px;
     width: 11px;
     height: 17px;
+    background-image: svg-load('../images/imgToBg/next.svg', fill=#333, stroke=#333);
   }
 
   &__player {
+    margin-top: 18px;
+  }
+
+  &__camera {
     margin-top: 18px;
   }
 }
