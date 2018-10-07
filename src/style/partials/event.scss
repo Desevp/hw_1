@@ -89,6 +89,12 @@
     }
   }
 
+  &.grid__item--l {
+    .event__description {
+      @include largeString();
+    }
+  }
+
   &__inner {
     padding: 20px;
 
@@ -168,7 +174,7 @@
   }
 
   &__description {
-    @include largeString();
+    @include normalString();
 
     @media screen and (max-width: $mobile) {
       @include smallString();

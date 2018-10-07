@@ -716,6 +716,12 @@ body {
             justify-content: space-between; }
 .event.grid__item--s .event__time {
     margin-top: 20px; }
+.event.grid__item--l .event__description {
+    font-size: 24px;
+    font-family: "Arial", "Helvetica Neue", Helvetica, sans-serif;
+    line-height: 1.16667;
+    font-weight: 400;
+    color: #333333; }
 .event__inner {
     padding: 20px; }
 .event__content-inner {
@@ -791,9 +797,9 @@ body {
     -webkit-transition: background-color 0.2s;
     transition: background-color 0.2s; }
 .event__description {
-    font-size: 24px;
+    font-size: 20px;
     font-family: "Arial", "Helvetica Neue", Helvetica, sans-serif;
-    line-height: 1.16667;
+    line-height: 1.15;
     font-weight: 400;
     color: #333333; }
 .event__picture {
