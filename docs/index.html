@@ -4,13 +4,63 @@
     <meta charset="utf-8">
     <title>Яндекс Дом</title>
     <meta name="description" content="">
-    @@include('_include/page-head.html')
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="noindex">
+
+    <link href="css/style.min.css" rel="stylesheet" media="screen">
+
+    <script>
+      // Маркер работающего javascript
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    </script>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
     <script type="text/javascript" src="media/events.json"></script>
   </head>
   <body>
     <div class="page__inner">
       <div class="page__content">
-        @@include('_include/header.html')
+        <header class="header">
+          <div class="container">
+            <div class="header__inner">
+              <div class="header__logo logo">
+                <a class="link link--absolute" href="#"></a>
+                <picture class="logo__img">
+                    <source type="image/svg+xml" srcset="images/logo.svg">
+                    <img src="images/logo.png" srcset="images/logo@2x.png 2x" alt="logo">
+                </picture>
+              </div>
+              <div class="header__menu header-menu">
+                <input id="toggle" class="header-menu__toggle" type="checkbox">
+                <label class="header-menu__icon-wr" for="toggle">
+                  <div class="header-menu__icon burger js-menu">
+                    <div class="burger__line"></div>
+                    <div class="burger__line"></div>
+                    <div class="burger__line"></div>
+                  </div>
+                </label>
+                <div class="nav__wr">
+                  <nav class="nav">
+                    <a class="nav__item nav__item--is-active" href="#">События</a>
+                    <a class="nav__item" href="#">Сводка</a>
+                    <a class="nav__item" href="#">Устройства</a>
+                    <a class="nav__item" href="#">Сценарии</a>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="header__pseudo"></div>
+
         <main role="main">
           <div class="container">
             <div class="section">
@@ -126,9 +176,38 @@
         </main>
       </div>
       <div class="page__footer">
-        @@include('_include/footer.html')
+        <footer class="footer">
+          <div class="container">
+            <div class="footer__inner">
+              <div class="footer__menu">
+                <ul class="list">
+                  <li class="list__item">
+                    <a class="link footer__link" href="#">Помощь</a>
+                  </li>
+                  <li class="link list__item">
+                    <a class="footer__link" href="#">Обратная связь</a>
+                  </li>
+                  <li class="link list__item">
+                    <a class="footer__link" href="#">Разработчикам</a>
+                  </li>
+                  <li class="link list__item">
+                    <a class="footer__link" href="#">Условия использования</a>
+                  </li>
+                  <li class="link list__item">
+                    <a class="footer__link" target="_blank" href="media/license.pdf">Лицензии</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="footer__copyright copyright">
+                <span>&copy;&nbsp;2001&ndash;2017&nbsp;ООО &laquo;</span><a class="footer__link" href="#">Яндекс</a><span>&raquo;</span>
+              </div>
+            </div>
+          </div>
+        </footer>
+
       </div>
     </div>
-    @@include('_include/page-bottom.html')
+    <script src="js/script.min.js"></script>
+
   </body>
 </html>
